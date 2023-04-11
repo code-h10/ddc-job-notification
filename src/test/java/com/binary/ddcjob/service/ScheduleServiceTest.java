@@ -39,7 +39,7 @@ class ScheduleServiceTest {
 
     @BeforeAll
     public void setUp() {
-        webhookUrl = "https://hooks.slack.com/services/TMAHGPPFG/B052J58PMA8/#####";
+        webhookUrl = "https://hooks.slack.com/services/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";
     }
 
     @Disabled
@@ -61,9 +61,8 @@ class ScheduleServiceTest {
         Slack slack = Slack.getInstance();
 
         WebhookResponse response = slack.send(webhookUrl, payload(p -> p
-                .text("동두천시 일자리 채용 정보 업데이트")
                 .blocks(asBlocks(section(section -> section.text(markdownText("⛰동두천시 일자리 채용 정보가 업데이트 되었습니다."))),
-                        section(section -> section.text(markdownText("https://www.ddc.go.kr/ddc/selectGosiList.do?key=469&not_ancmt_se_code=05")))
+                        section(section -> section.text(plainText("https://www.ddc.go.kr/ddc/selectGosiList.do?key=469&not_ancmt_se_code=05")))
                 ))
         ));
     }

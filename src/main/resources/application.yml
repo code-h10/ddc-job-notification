@@ -1,0 +1,8 @@
+slack:
+  webhook-url: https://hooks.slack.com/services/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
+
+---
+
+crawling:
+  ddc-url: https://www.ddc.go.kr/ddc/selectGosiList.do?key=469&not_ancmt_se_code=05
+

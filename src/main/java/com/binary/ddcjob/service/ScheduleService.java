@@ -1,5 +1,6 @@
 package com.binary.ddcjob.service;
 
+import com.binary.ddcjob.utils.SlackUtil;
 import com.slack.api.Slack;
 import com.slack.api.webhook.WebhookResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +10,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -20,8 +22,8 @@ import static com.slack.api.model.block.composition.BlockCompositions.markdownTe
 import static com.slack.api.model.block.composition.BlockCompositions.plainText;
 import static com.slack.api.webhook.WebhookPayloads.payload;
 
-@Service
 @Slf4j
+@Service
 public class ScheduleService {
 
     @Value("${slack.webhook-url}")
@@ -30,25 +32,23 @@ public class ScheduleService {
     @Value("${crawling.ddc-url}")
     private String ddcUrl;
 
-    private Slack slack = Slack.getInstance();
-
-    @Scheduled(cron = "0 0 9-21 * * *")
+    @Scheduled(cron = "0 0 9-20 * * *")
     public void dongducheonJob() throws IOException {
 
+        System.out.println(webhookUrl);
+
+        log.info("START >>>>>>>>> ");
         Document doc = Jsoup.connect(ddcUrl).get();
         Elements tr =  doc.select(".bbs_default > tbody > tr");
 
-        String currentDate = LocalDate.now().toString();
+        String toDate = LocalDate.now().toString();
         for (int index = tr.size()-1; index > 0; index--) {
-            if(currentDate.equals(tr.get(index).firstElementChild())) {
-                WebhookResponse response = slack.send(webhookUrl, payload(p -> p
-                        .text("동두천시 일자리 채용 정보 업데이트")
-                        .blocks(asBlocks(section(
-                                section -> section.text(markdownText("⛰동두천시 일자리 채용 정보가 업데이트 되었습니다."))),
-                                section(section -> section.text(plainText(ddcUrl)))
-                        ))
-                ));
+            log.info("toDay={}", toDate);
+            log.info("jobInformation={}", tr.get(index));
+            if(toDate.equals(tr.get(index).lastElementChild().toString())) {
+                SlackUtil.send(webhookUrl, "새로운 동두천시 일자리가 업데이트 되었습니다.\n" + ddcUrl);
             }
         }
+        log.info("END >>>>>>>>> ");
     }
 }
