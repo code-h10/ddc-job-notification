@@ -1,0 +1,7 @@
+FROM adoptopenjdk/openjdk11
+
+WORKDIR /root/app
+
+COPY build/libs/ddcjob-0.0.1-SNAPSHOT.jar /root/app
+
+ENTRYPOINT ["java","-jar","/ddcjob-0.0.1-SNAPSHOT.jar"]
