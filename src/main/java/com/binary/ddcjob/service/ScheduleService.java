@@ -34,7 +34,6 @@ public class ScheduleService {
 
     @Scheduled(cron = "0 0 21 * * *")
     public void dongducheonJob() throws IOException {
-''
         log.info("START >>>>>>>>> ");
         Document doc = Jsoup.connect(ddcUrl).get();
         Elements tr =  doc.select(".bbs_default > tbody > tr");
