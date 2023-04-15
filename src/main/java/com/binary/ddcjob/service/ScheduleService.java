@@ -32,9 +32,9 @@ public class ScheduleService {
     @Value("${crawling.ddc-url}")
     private String ddcUrl;
 
-    @Scheduled(cron = "0 0 9-20 * * *")
+    @Scheduled(cron = "0 0 21 * * *")
     public void dongducheonJob() throws IOException {
-
+''
         log.info("START >>>>>>>>> ");
         Document doc = Jsoup.connect(ddcUrl).get();
         Elements tr =  doc.select(".bbs_default > tbody > tr");
