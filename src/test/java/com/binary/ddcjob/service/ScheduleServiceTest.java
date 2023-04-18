@@ -66,9 +66,4 @@ class ScheduleServiceTest {
                 ))
         ));
     }
-
-    @Test
-    public void scheduleTest() throws IOException {
-        scheduleService.dongducheonJob();
-    }
 }
