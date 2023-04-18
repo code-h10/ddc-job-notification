@@ -42,7 +42,8 @@ public class ScheduleService {
         for (int index = tr.size()-1; index > 0; index--) {
             log.info("toDay={}", toDate);
             log.info("jobInformation={}", tr.get(index));
-            if(toDate.equals(tr.get(index).lastElementChild().toString())) {
+
+            if(toDate.equals(tr.get(index).lastElementChild().text())) {
                 SlackUtil.send(webhookUrl, "새로운 동두천시 일자리가 업데이트 되었습니다.\n" + ddcUrl);
             }
         }

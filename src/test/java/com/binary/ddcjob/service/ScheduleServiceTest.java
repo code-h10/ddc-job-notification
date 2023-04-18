@@ -9,13 +9,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
@@ -31,14 +30,14 @@ import static com.slack.api.model.block.element.BlockElements.button;
 import static com.slack.api.webhook.WebhookPayloads.payload;
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(SpringExtension.class)
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@SpringBootTest
 class ScheduleServiceTest {
 
     private String webhookUrl;
+    @Autowired private ScheduleService scheduleService;
 
-    @BeforeAll
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         webhookUrl = "https://hooks.slack.com/services/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";
     }
 
@@ -56,6 +55,7 @@ class ScheduleServiceTest {
         }
     }
 
+    @Disabled
     @Test
     public void should_checkValidSlack_WhenAfterSetUp() throws SlackApiException, IOException {
         Slack slack = Slack.getInstance();
@@ -65,5 +65,10 @@ class ScheduleServiceTest {
                         section(section -> section.text(plainText("https://www.ddc.go.kr/ddc/selectGosiList.do?key=469&not_ancmt_se_code=05")))
                 ))
         ));
+    }
+
+    @Test
+    public void scheduleTest() throws IOException {
+        scheduleService.dongducheonJob();
     }
 }
