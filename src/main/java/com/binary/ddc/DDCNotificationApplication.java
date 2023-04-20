@@ -6,9 +6,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 @SpringBootApplication
-public class DdcNotificationApplication {
+public class DDCNotificationApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(DdcNotificationApplication.class, args);
+		SpringApplication.run(DDCNotificationApplication.class, args);
 	}
-
 }

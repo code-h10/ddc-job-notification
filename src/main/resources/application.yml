@@ -4,5 +4,6 @@ slack:
 ---
 
 crawling:
-  ddc-url: https://www.ddc.go.kr/ddc/selectGosiList.do?key=469&not_ancmt_se_code=05
+  ddc-job-url: https://www.ddc.go.kr/ddc/selectGosiList.do?key=469&not_ancmt_se_code=05
+  ddc-library-url: https://211.46.124.148/EZ5500/SEAT/RoomStatus.aspx
 

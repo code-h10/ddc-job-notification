@@ -1,28 +1,17 @@
-package com.binary.ddc.service;
+package com.binary.ddc.scheduler;
 
-import com.slack.api.Slack;
-import com.slack.api.methods.SlackApiException;
-import com.slack.api.webhook.WebhookResponse;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.IOException;
-import java.time.LocalDate;
-
-import static com.slack.api.model.block.Blocks.*;
 import static com.slack.api.model.block.composition.BlockCompositions.markdownText;
 import static com.slack.api.model.block.composition.BlockCompositions.plainText;
-import static com.slack.api.webhook.WebhookPayloads.payload;
 
 @SpringBootTest
-class ScheduleServiceTest {
+class DDCJobSchedulerTest {
 
     private String webhookUrl;
-    @Autowired private ScheduleService scheduleService;
+    @Autowired private DDCJobScheduler DDCJobScheduler;
 
     @BeforeEach
     void setUp() {
