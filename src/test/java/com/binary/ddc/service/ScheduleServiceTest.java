@@ -1,34 +1,22 @@
-package com.binary.ddcjob.service;
+package com.binary.ddc.service;
 
 import com.slack.api.Slack;
 import com.slack.api.methods.SlackApiException;
-import com.slack.api.methods.response.api.ApiTestResponse;
-import com.slack.api.webhook.Payload;
 import com.slack.api.webhook.WebhookResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.chrono.ChronoLocalDate;
-import java.util.Collections;
 
 import static com.slack.api.model.block.Blocks.*;
 import static com.slack.api.model.block.composition.BlockCompositions.markdownText;
 import static com.slack.api.model.block.composition.BlockCompositions.plainText;
-import static com.slack.api.model.block.element.BlockElements.asElements;
-import static com.slack.api.model.block.element.BlockElements.button;
 import static com.slack.api.webhook.WebhookPayloads.payload;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ScheduleServiceTest {

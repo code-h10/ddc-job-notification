@@ -1,10 +1,10 @@
-package com.binary.ddcjob;
+package com.binary.ddc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DdcjobApplicationTests {
+class DdcNotificationApplication {
 
 	@Test
 	void contextLoads() {

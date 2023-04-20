@@ -1,18 +1,14 @@
-package com.binary.ddcjob.service;
+package com.binary.ddc.service;
 
-import com.binary.ddcjob.utils.SlackUtil;
-import com.slack.api.Slack;
+import com.binary.ddc.utils.SlackUtil;
 import com.slack.api.model.block.LayoutBlock;
-import com.slack.api.webhook.WebhookResponse;
 import kotlin.collections.ArrayDeque;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -23,7 +19,6 @@ import static com.slack.api.model.block.Blocks.*;
 import static com.slack.api.model.block.composition.BlockCompositions.markdownText;
 import static com.slack.api.model.block.composition.BlockCompositions.plainText;
 import static com.slack.api.model.block.element.BlockElements.button;
-import static com.slack.api.webhook.WebhookPayloads.payload;
 
 @Slf4j
 @Service

@@ -1,4 +1,4 @@
-package com.binary.ddcjob;
+package com.binary.ddc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,9 +6,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 @SpringBootApplication
-public class DdcjobApplication {
+public class DdcNotificationApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(DdcjobApplication.class, args);
+		SpringApplication.run(DdcNotificationApplication.class, args);
 	}
 
 }
