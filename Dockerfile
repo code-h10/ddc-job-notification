@@ -1,9 +1,9 @@
 FROM adoptopenjdk/openjdk11
 
-WORKDIR /root/ddcjob
+WORKDIR /root/ddc
 
-COPY . /root/ddcjob
+COPY . /root/ddc
 
 RUN ./gradlew build
 
-CMD java -jar /root/ddcjob/build/libs/ddcjob-0.0.1-SNAPSHOT.jar
+CMD java -jar /root/ddc/build/libs/ddc-notification-0.0.1-SNAPSHOT.jar
