@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Properties>
+        <Property name="logNm">DDC Notification Log4j2</Property>
+        <Property name="layoutPattern">%style{%d}{cyan} %style{[%t]}{yellow} %highlight{[%-5p]}{FATAL=bg_red, ERROR=red, INFO=green, DEBUG=blue}  [%-5c{1.}] %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${layoutPattern}"/>
+        </Console>
+<!--        <RollingFile name="File" fileName="logs/${logNm}.log" filePattern="logs/${logNm}_%d{yyyy-MM-dd}_%i.log.gz">-->
+<!--            <PatternLayout pattern="${layoutPattern}"/>-->
+<!--            <Policies>-->
+<!--                <SizeBasedTriggeringPolicy size="1000KB"/>-->
+<!--                <TimeBasedTriggeringPolicy interval="1"/>-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy max="10" fileIndex="min"/>-->
+<!--        </RollingFile>-->
+    </Appenders>
+    <Loggers>
+        <Root level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+        <Logger name="org.springframework" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="File"/>
+        </Logger>
+
+        <Logger name="com.logging" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console"  />
+            <AppenderRef ref="File"/>
+        </Logger>
+    </Loggers>
+</Configuration>

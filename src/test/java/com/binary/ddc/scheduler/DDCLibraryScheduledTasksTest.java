@@ -11,9 +11,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.io.IOException;
 
 
-@TestPropertySource(properties = { "crawling.ddc-library-url=https://211.46.124.148/EZ5500/SEAT/RoomStatus.aspx" })
+@TestPropertySource(properties = { "crawling.ddc-library-url=http://211.46.124.148/EZ5500/SEAT/RoomStatus.aspx" })
 @ExtendWith(SpringExtension.class)
-class DDCLibrarySchedulerTest {
+class DDCLibraryScheduledTasksTest {
 
     @Value("${slack.webhook-url}")
     private String webhookUrl;

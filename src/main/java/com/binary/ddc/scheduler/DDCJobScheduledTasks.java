@@ -22,10 +22,10 @@ import static com.slack.api.model.block.element.BlockElements.button;
 
 @Slf4j
 @Service
-public class DDCJobScheduler {
+public class DDCJobScheduledTasks {
 
-    @Value("${slack.webhook-url}")
-    private String webhookUrl;
+    @Value("${slack.ddc-job-webhook-url}")
+    private String ddcJobWebhookUrl;
 
     @Value("${crawling.ddc-job-url}")
     private String ddcJobUrl;
@@ -38,7 +38,7 @@ public class DDCJobScheduler {
         String toDate = LocalDate.now().toString();
 
 
-        for (int index = tr.size()-1; index > 0; index--) {
+        for (int index = tr.size()-1; index >= 0; index--) {
             log.info("toDay={}", toDate);
             log.info("jobInformation={}", tr.get(index));
 
@@ -50,7 +50,7 @@ public class DDCJobScheduler {
                 layoutBlocks.add(divider());
                 layoutBlocks.add(section(section -> section.text(markdownText(contentText)).accessory(button(btn -> btn.text(plainText("홈페이지")).url(ddcJobUrl).actionId("button-action")))));
 
-                SlackUtil.send(webhookUrl, layoutBlocks);
+                SlackUtil.send(ddcJobWebhookUrl, layoutBlocks);
             }
         }
         log.info("END >>>>>>>>> ");
