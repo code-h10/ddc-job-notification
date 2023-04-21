@@ -31,7 +31,7 @@ class DDCJobScheduledTasksTest {
     @Test
     public void should_ReturnDDCJobHtml_WhenApiCall() throws IOException {
 
-        Document doc = Jsoup.connect(ddcJobUrl).get();
+        Document doc = Jsoup.connect(ddcJobUrl).timeout(30000).get();
         Elements tr =  doc.select(".bbs_default > tbody > tr");
         String toDate = LocalDate.now().toString();
 

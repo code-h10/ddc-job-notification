@@ -24,9 +24,8 @@ class DDCLibraryScheduledTasksTest {
 
     @Test
     public void should_ReturnDDCLibrary_WhenApiCall() throws IOException {
-        System.out.println(ddcLibraryUrl);
         Document doc = Jsoup.connect(ddcLibraryUrl).get();
-        System.out.println(doc);
+
 
 
     }
