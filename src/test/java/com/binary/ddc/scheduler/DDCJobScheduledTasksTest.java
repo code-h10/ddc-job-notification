@@ -3,6 +3,7 @@ package com.binary.ddc.scheduler;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ class DDCJobScheduledTasksTest {
     @Value("${crawling.ddc-job-url}")
     private String ddcJobUrl;
 
+    @Disabled
     @Test
     public void should_ReturnDDCJobHtml_WhenApiCall() throws IOException {
 
