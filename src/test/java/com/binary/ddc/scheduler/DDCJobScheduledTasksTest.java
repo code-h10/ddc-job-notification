@@ -20,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @TestPropertySource(properties = { "crawling.ddc-job-url=https://www.ddc.go.kr/ddc/selectGosiList.do?key=469&not_ancmt_se_code=05" })
 @ExtendWith(SpringExtension.class)
-@SpringBootTest
 class DDCJobScheduledTasksTest {
 
     @Value("${slack.ddc-job-webhook-url}")

@@ -20,7 +20,7 @@ public class SlackUtil {
         try {
             slack.send(webhookUrl, payload(p -> p.blocks(layoutBlocks)));
         } catch (Exception e) {
-            log.error("Slack Error Message={}", e.getCause());
+            log.error("Slack Error Message={}", e);
         }
         
     }
