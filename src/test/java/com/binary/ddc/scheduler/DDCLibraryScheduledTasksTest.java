@@ -15,18 +15,4 @@ import java.io.IOException;
 @ExtendWith(SpringExtension.class)
 class DDCLibraryScheduledTasksTest {
 
-    @Value("${slack.webhook-url}")
-    private String webhookUrl;
-
-    @Value("${crawling.ddc-library-url}")
-    private String ddcLibraryUrl;
-
-
-    @Test
-    public void should_ReturnDDCLibrary_WhenApiCall() throws IOException {
-        Document doc = Jsoup.connect(ddcLibraryUrl).get();
-
-
-
-    }
 }

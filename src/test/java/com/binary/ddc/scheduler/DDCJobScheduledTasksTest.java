@@ -22,13 +22,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @ExtendWith(SpringExtension.class)
 class DDCJobScheduledTasksTest {
 
-    @Value("${slack.ddc-job-webhook-url}")
-    private String ddcJobWebhookUrl;
-
     @Value("${crawling.ddc-job-url}")
     private String ddcJobUrl;
 
-    @Disabled
+
     @Test
     public void should_ReturnDDCJobHtml_WhenApiCall() throws IOException {
 
