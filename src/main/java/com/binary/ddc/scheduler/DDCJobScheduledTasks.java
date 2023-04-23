@@ -9,6 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -21,10 +22,10 @@ import static com.slack.api.model.block.composition.BlockCompositions.plainText;
 import static com.slack.api.model.block.element.BlockElements.button;
 
 @Slf4j
-@Service
+@Component
 public class DDCJobScheduledTasks {
 
-    @Value("${slack.ddc-job-webhook-url}")
+    @Value("${slack.webhook.ddc-job-url}")
     private String ddcJobWebhookUrl;
 
     @Value("${crawling.ddc-job-url}")

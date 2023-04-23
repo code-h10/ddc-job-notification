@@ -20,16 +20,19 @@
     <Loggers>
         <Root level="INFO" additivity="false">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="File"/>
+<!--            <AppenderRef ref="File"/>-->
         </Root>
         <Logger name="org.springframework" level="DEBUG" additivity="false">
             <AppenderRef ref="Console" />
-            <AppenderRef ref="File"/>
+<!--            <AppenderRef ref="File"/>-->
         </Logger>
-
+        <Logger name="com.slack.api" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console" />
+<!--            <AppenderRef ref="File"/>-->
+        </Logger>
         <Logger name="com.logging" level="DEBUG" additivity="false">
             <AppenderRef ref="Console"  />
-            <AppenderRef ref="File"/>
+<!--            <AppenderRef ref="File"/>-->
         </Logger>
     </Loggers>
 </Configuration>

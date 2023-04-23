@@ -6,17 +6,17 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.time.LocalDate;
 
 @Slf4j
-@Service
+@Component
 public class DDCLibraryScheduledTasks {
 
-
-    @Value("${slack.ddc-library-webhook-url}")
+    @Value("${slack.webhook.ddc-library-url}")
     private String ddcLibraryWebhookUrl;
 
     @Value("${crawling.ddc-library-url}")

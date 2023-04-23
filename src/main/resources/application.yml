@@ -1,6 +1,7 @@
 slack:
-  ddc-job-webhook-url: $!@%!@%!@%!@%!@%!@%!@$!@$
-  ddc-library-webhook-url: $!@%!@%!@%!@%!@%!@%!@$!@$
+  webhook:
+    ddc-job-url: $!@%!@%!@%!@%!@%!@%!@$!@$
+    ddc-library-url: $!@%!@%!@%!@%!@%!@%!@$!@$
 
 ---
 
