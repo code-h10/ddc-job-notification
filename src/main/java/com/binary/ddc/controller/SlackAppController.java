@@ -1,28 +1,19 @@
 package com.binary.ddc.controller;
 
-import com.binary.ddc.service.SlackAppService;
-import lombok.RequiredArgsConstructor;
+import com.slack.api.bolt.App;
+import com.slack.api.bolt.AppConfig;
+import com.slack.api.bolt.servlet.SlackAppServlet;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
+import javax.servlet.annotation.WebServlet;
 
 @Slf4j
 @RestController
-@RequiredArgsConstructor
-public class SlackAppController {
+@WebServlet("/slack/events")
+public class SlackAppController extends SlackAppServlet {
 
-    private final SlackAppService slackAppService;
-
-    @PostMapping(value = "/slack/events", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> receiveEvents(@RequestBody Map<String, Object> data) {
-
-
-        return ResponseEntity.ok(data.get("challenge").toString());
+    public SlackAppController(App app) {
+        super(app);
     }
-
 }
