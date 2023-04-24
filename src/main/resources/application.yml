@@ -2,7 +2,9 @@ slack:
   webhook:
     ddc-job-url: $!@%!@%!@%!@%!@%!@%!@$!@$
     ddc-library-url: $!@%!@%!@%!@%!@%!@%!@$!@$
-
+  app:
+    bot-token: 124124
+    secret-key: 451241
 ---
 
 crawling:

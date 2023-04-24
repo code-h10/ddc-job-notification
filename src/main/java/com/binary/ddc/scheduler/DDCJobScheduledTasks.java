@@ -31,7 +31,7 @@ public class DDCJobScheduledTasks {
     @Value("${crawling.ddc-job-url}")
     private String ddcJobUrl;
 
-    @Scheduled(cron = "0 0 21 * * *")
+    @Scheduled(cron = "0/10 * * * * *")
     public void ddcJob() throws IOException {
         log.info("START >>>>>>>>> ");
         Document doc = Jsoup.connect(ddcJobUrl).get();

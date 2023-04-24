@@ -11,6 +11,7 @@ import com.slack.api.methods.response.chat.ChatPostMessageResponse;
 import com.slack.api.model.event.AppMentionEvent;
 import com.slack.api.model.event.ReactionAddedEvent;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,9 +20,15 @@ import java.io.IOException;
 @Configuration
 public class SlackConfig {
 
+    @Value("${slack.app.secret-key}")
+    private String secretKey;
+
+    @Value("${slack.app.bot-token}")
+    private String botToken;
+
     @Bean
     public App initSlackApp() {
-        AppConfig appConfig = AppConfig.builder().signingSecret("a79b0dbae8c8e281f765f3795c62570f").singleTeamBotToken("xoxb-724594805526-5153240438033-3ObNPFVFT1SLhpn8prJM77o0").build();
+        AppConfig appConfig = AppConfig.builder().signingSecret(secretKey).singleTeamBotToken(botToken).build();
         App app = new App(appConfig);
 
         app.event(AppMentionEvent.class, (payload, ctx) -> {
